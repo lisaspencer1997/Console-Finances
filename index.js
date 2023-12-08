@@ -92,8 +92,6 @@ let amount = 0
 let total = 0
 let date;
 
-console.log (months)
-
 
 // ✅The total number of months included in the dataset.
   // finances.length
@@ -106,11 +104,21 @@ for (let i = 0; i < finances.length; i++) {
   
 }
 
-// The net total amount of Profit / Losses over the entire period.
+// ✅The net total amount of Profit / Losses over the entire period.
   // Need a variable for Profits/Losses
   // Need to be able to compare the data for the loop that we're on to the data from the previous loop
     // Need variables for current & previous once we start the loop
     // Need an if statement to make sure we're on at least month 2 (array index 1) before starting to figure profits & losses
+
+
+
+// So to find the average is this total divided by months?
+
+let average = total / (months -1)
+
+console.log (months -1);
+console.log (average);
+console.log (amount -1)
 
 // The average of the changes in Profit / Losses over the entire period.
   // Need a variable to track the average change
@@ -143,7 +151,12 @@ for (let i = 0; i < finances.length; i++) {
 // What I want to display on the console log:
 
 console.log (`
-Financial Analysiss
+Financial Analysis
 __________________________
 Total months - ${months}
-Total - £${total}`);
+Total - £${total}
+Average Change -
+Greatest Increase in Profits/Losses - 
+Greatest Decrease in Profits/Losses - `);
+
+console.log (average);
