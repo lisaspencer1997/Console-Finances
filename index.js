@@ -112,7 +112,6 @@ for (let i = 0; i < finances.length; i++) {
   const month = finances[i];
     date = month[0]
     amount = month[1]
-    total += amount;
 }
 
 // month = finances[i] references the "i"th element within the finances array
@@ -133,8 +132,6 @@ previousAmount = amount;
 
 }
 
-console.log(amount);
-
 let average = total / (numberOfMonths -1);
 
 // this if should define the difference between one month and the month before apart from the 0 month. 
@@ -147,6 +144,20 @@ let average = total / (numberOfMonths -1);
 // (Total / (Number of months - 1))
 
 
+let allChanges = 0;
+
+for (let i = 1; i < finances.length; i++) {
+  const currentAmount = finances[i][1];
+  const previousAmount = finances[i - 1][1];
+  const change = currentAmount - previousAmount;
+
+  allChanges += change;
+  
+}
+
+const averageChange = allChanges / (months - 1);
+
+console.log(averageChange);
 
 // The greatest increase in Profit / Losses(date and amount) over the entire period.
   // Need a variable for the greatest increase
