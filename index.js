@@ -169,14 +169,23 @@ console.log(averageChange.toFixed(2));
 
 let greatestIncrease = {amount: 0};
 
-for (let i = 0; i < finances.length; i++) {
+for (let i = 1; i < finances.length; i++) {
   const currentAmount = finances[i][1];
   const previousAmount = finances[i - 1][1];
-  const change = currentAmount = previousAmount;
-  
+  const change = currentAmount - previousAmount;
+
+  // I want to update the greatest increase if the current change is greater than it
+
+  if (change > greatestIncrease.amount) {
+    greatestIncrease.amount = change;
+    greatestIncrease.date = finances[i][0];
+  }
+
 }
 
-
+console.log(greatestIncrease.amount);
+console.log(greatestIncrease.date);
+  
 
 
 
@@ -205,5 +214,5 @@ __________________________
 Total months - ${numberOfMonths}
 Total - £${total}
 Average Change - £${averageChange.toFixed(2)}
-Greatest Increase in Profits/Losses - 
+Greatest Increase in Profits/Losses - ${greatestIncrease.date} (£${greatestIncrease.amount})
 Greatest Decrease in Profits/Losses - `);
