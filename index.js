@@ -121,7 +121,16 @@ for (let i = 0; i < finances.length; i++) {
 for (let i = 0; i < finances.length; i++) {
   const month = finances[i];
   const amount = month[1];
+
+  // this if should define the difference between one month and the month before apart from the 0 month. changed so it's within the for loop.
   
+  if (i > 0) {
+    const difference = amount - previousAmount
+}
+
+total += amount;
+previousAmount = amount;
+
 }
 
 console.log(amount);
@@ -130,12 +139,6 @@ let average = total / (numberOfMonths -1);
 
 // this if should define the difference between one month and the month before apart from the 0 month. 
 
-if (i > 0) {
-  const difference = amount - previousAmount
-}
-
-total += amount;
-previousAmount = amount;
 
 // The average of the changes in Profit / Losses over the entire period.
   // Need a variable to track the average change
