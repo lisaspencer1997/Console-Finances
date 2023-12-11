@@ -87,38 +87,56 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-let months = finances.length
 let amount = 0
 let total = 0
 let date;
 
 
-// ✅The total number of months included in the dataset.
+// ✅Task 1: The total number of months included in the dataset.
   // finances.length
 
-for (let i = 0; i < finances.length; i++) {
-  const month = finances[i];
-    date = month[0]
-    amount = month[1]
-    total += amount;
-  
-}
+  let numberOfMonths = finances.length
 
-// ✅The net total amount of Profit / Losses over the entire period.
+// ✅Task 2: The net total amount of Profit / Losses over the entire period.
   // Need a variable for Profits/Losses
   // Need to be able to compare the data for the loop that we're on to the data from the previous loop
     // Need variables for current & previous once we start the loop
     // Need an if statement to make sure we're on at least month 2 (array index 1) before starting to figure profits & losses
 
 
+  // we make i equal 0. 0 is the first number in an array selection. So if we want to find the first part of the array, we must search for 0. So finances[0] would equal the month displayed in the data. So finances[i] if i=0 works out to be the 
+
+//Trying a new way of doing this bit -- 
+// for (let i = 0; i < finances.length; i++) {
+//   const month = finances[i];
+//     date = month[0]
+//     amount = month[1]
+//     total += amount;
+  
+// }
+// monthAndProfit = finances[i] references the "i"th element within the finances array
+//profitLoss = 
+
+for (let i = 0; i < numberOfMonths; i++) {
+  const monthAndProfit = finances[i];
+    monthOnly = monthAndProfit[0]
+    profitLoss = monthAndProfit[1]
+    totalProfit += profitLoss;
+  
+}
+
 
 // So to find the average is this total divided by months?
 
-let average = total / (months -1)
+// months = the number of months in the data aka 86
+// profitLoss = the amount of money in one month
+// total = all of the money over all months in the whole data set
 
-console.log (months -1);
+let average = total / (numberOfMonths -1)
+
+console.log (numberOfMonths -1);
 console.log (average);
-console.log (amount -1)
+console.log (amount -1);
 
 // The average of the changes in Profit / Losses over the entire period.
   // Need a variable to track the average change
@@ -153,10 +171,8 @@ console.log (amount -1)
 console.log (`
 Financial Analysis
 __________________________
-Total months - ${months}
+Total months - ${numberOfMonths}
 Total - £${total}
 Average Change -
 Greatest Increase in Profits/Losses - 
 Greatest Decrease in Profits/Losses - `);
-
-console.log (average);
