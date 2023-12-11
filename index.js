@@ -159,9 +159,9 @@ const averageChange = allChanges / (months - 1);
 
 // to get the number to meet it at two decimal points, we put toFixed next to it
 
-console.log(averageChange.toFixed(2));
+// console.log(averageChange.toFixed(2));
 
-// Task 4:The greatest increase in Profit / Losses(date and amount) over the entire period.
+// ✅Task 4:The greatest increase in Profit / Losses(date and amount) over the entire period.
   // Need a variable for the greatest increase
   // On each iteration, compare the current change in profits/losses to what's currently stored
   // If the change is more, replace what's currently stored in the variable
@@ -183,16 +183,29 @@ for (let i = 1; i < finances.length; i++) {
 
 }
 
-console.log(greatestIncrease.amount);
-console.log(greatestIncrease.date);
-  
 
-
-
-// The greatest decrease in Profit / Losses(date and amount) over the entire period.
+// ✅Task 5:The greatest decrease in Profit / Losses(date and amount) over the entire period.
   // Need a variable for the greatest decrease
   // On each iteration, compare the current change in profits/losses to what's currently stored
   // If the loss is greater, replace what's currently stored in the variable
+
+
+  let greatestDecrease = {amount: 0};
+
+  for (let i = 1; i < finances.length; i++) {
+    const currentAmount = finances[i][1];
+    const previousAmount = finances[i - 1][1];
+    const change = currentAmount - previousAmount;
+  
+    // I want to update the greatest increase if the current change is greater than it
+  
+    if (change < greatestDecrease.amount) {
+      greatestDecrease.amount = change;
+      greatestDecrease.date = finances[i][0];
+    }
+  
+  }
+
 
 // variables:
 // total number of months
@@ -215,4 +228,4 @@ Total months - ${numberOfMonths}
 Total - £${total}
 Average Change - £${averageChange.toFixed(2)}
 Greatest Increase in Profits/Losses - ${greatestIncrease.date} (£${greatestIncrease.amount})
-Greatest Decrease in Profits/Losses - `);
+Greatest Decrease in Profits/Losses - ${greatestDecrease.date} (£${greatestDecrease.amount})`);
