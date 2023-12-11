@@ -87,8 +87,10 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+let total = 0;
+let previousAmount;
+let months = finances.length
 let amount = 0
-let total = 0
 let date;
 
 
@@ -106,43 +108,42 @@ let date;
 
   // we make i equal 0. 0 is the first number in an array selection. So if we want to find the first part of the array, we must search for 0. So finances[0] would equal the month displayed in the data. So finances[i] if i=0 works out to be the 
 
-//Trying a new way of doing this bit -- 
-// for (let i = 0; i < finances.length; i++) {
-//   const month = finances[i];
-//     date = month[0]
-//     amount = month[1]
-//     total += amount;
-  
-// }
-// monthAndProfit = finances[i] references the "i"th element within the finances array
-//profitLoss = 
+for (let i = 0; i < finances.length; i++) {
+  const month = finances[i];
+    date = month[0]
+    amount = month[1]
+    total += amount;
+}
 
-for (let i = 0; i < numberOfMonths; i++) {
-  const monthAndProfit = finances[i];
-    monthOnly = monthAndProfit[0]
-    profitLoss = monthAndProfit[1]
-    totalProfit += profitLoss;
+// month = finances[i] references the "i"th element within the finances array
+// amount = the profit/loss for a singular month
+
+for (let i = 0; i < finances.length; i++) {
+  const month = finances[i];
+  const amount = month[1];
   
 }
 
+console.log(amount);
 
-// So to find the average is this total divided by months?
+let average = total / (numberOfMonths -1);
 
-// months = the number of months in the data aka 86
-// profitLoss = the amount of money in one month
-// total = all of the money over all months in the whole data set
+// this if should define the difference between one month and the month before apart from the 0 month. 
 
-let average = total / (numberOfMonths -1)
+if (i > 0) {
+  const difference = amount - previousAmount
+}
 
-console.log (numberOfMonths -1);
-console.log (average);
-console.log (amount -1);
+total += amount;
+previousAmount = amount;
 
 // The average of the changes in Profit / Losses over the entire period.
   // Need a variable to track the average change
   // That will make use of the current & previous variables we set up before
 // You will need to track what the total change in Profit / Losses are from month to month and then find the average.
 // (Total / (Number of months - 1))
+
+
 
 // The greatest increase in Profit / Losses(date and amount) over the entire period.
   // Need a variable for the greatest increase
