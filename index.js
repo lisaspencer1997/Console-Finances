@@ -137,7 +137,7 @@ let average = total / (numberOfMonths -1);
 // this if should define the difference between one month and the month before apart from the 0 month. 
 
 
-// The average of the changes in Profit / Losses over the entire period.
+// ✅Task 3:The average of the changes in Profit / Losses over the entire period.
   // Need a variable to track the average change
   // That will make use of the current & previous variables we set up before
 // You will need to track what the total change in Profit / Losses are from month to month and then find the average.
@@ -157,12 +157,28 @@ for (let i = 1; i < finances.length; i++) {
 
 const averageChange = allChanges / (months - 1);
 
-console.log(averageChange);
+// to get the number to meet it at two decimal points, we put toFixed next to it
 
-// The greatest increase in Profit / Losses(date and amount) over the entire period.
+console.log(averageChange.toFixed(2));
+
+// Task 4:The greatest increase in Profit / Losses(date and amount) over the entire period.
   // Need a variable for the greatest increase
   // On each iteration, compare the current change in profits/losses to what's currently stored
   // If the change is more, replace what's currently stored in the variable
+
+
+let greatestIncrease = {amount: 0};
+
+for (let i = 0; i < finances.length; i++) {
+  const currentAmount = finances[i][1];
+  const previousAmount = finances[i - 1][1];
+  const change = currentAmount = previousAmount;
+  
+}
+
+
+
+
 
 // The greatest decrease in Profit / Losses(date and amount) over the entire period.
   // Need a variable for the greatest decrease
@@ -188,6 +204,6 @@ Financial Analysis
 __________________________
 Total months - ${numberOfMonths}
 Total - £${total}
-Average Change -
+Average Change - £${averageChange.toFixed(2)}
 Greatest Increase in Profits/Losses - 
 Greatest Decrease in Profits/Losses - `);
